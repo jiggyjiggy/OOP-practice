@@ -3,10 +3,11 @@ import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
 
-public class RandomPasswordGenerator {
+public class RandomPasswordGenerator implements MyPasswordGenerator {
 	public static final String ALLOWED_SPL_CHARACTERS = "!@#$%^&*()_+";
 	public static final String ERROR_CODE = "ERRONEOUS_SPECIAL_CHARS";
 	
+	@Override
 	public String generatePassword() {
 		PasswordGenerator passwordGenerator = new PasswordGenerator();
 		
