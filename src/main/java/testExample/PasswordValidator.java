@@ -1,3 +1,5 @@
+package testExample;
+
 public class PasswordValidator {
 	/**
 	 * 비밀번호가 8자 미만 또는 12자 초과하는 경우 IllegalArgumentException 예외가 발생한다.
