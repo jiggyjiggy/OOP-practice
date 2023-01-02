@@ -1,6 +1,8 @@
+package testExample;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
+import testExample.User;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

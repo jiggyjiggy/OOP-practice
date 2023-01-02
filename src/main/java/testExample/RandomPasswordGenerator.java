@@ -1,3 +1,5 @@
+package testExample;
+
 import org.passay.CharacterData;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;

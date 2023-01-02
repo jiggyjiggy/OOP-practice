@@ -1,3 +1,5 @@
+package testExample;
+
 public class User {
 	private String password;
 	
