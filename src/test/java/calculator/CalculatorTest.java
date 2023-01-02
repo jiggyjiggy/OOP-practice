@@ -1,5 +1,6 @@
 package calculator;
 
+import calculator.vo.PositiveNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,7 +25,7 @@ public class CalculatorTest {
 	@DisplayName("사칙 연산을 수행한다")
 	@ParameterizedTest()
 	@MethodSource("formulaAndResult")
-	void additionTest(int operand1, String operator, int operand2, int result) {
+	void additionTest(PositiveNumber operand1, String operator, PositiveNumber operand2, int result) {
 		// Given
 		Calculator calculator = new Calculator();
 		int actual = calculator.calculate(operand1, operator, operand2);
@@ -35,20 +36,23 @@ public class CalculatorTest {
 	
 	private static Stream<Arguments> formulaAndResult() {
 		return Stream.of(
-			arguments(1, "+", 2, 3),
-			arguments(1, "-", 2, -1),
-			arguments(1, "*", 2, 2),
-			arguments(4, "/", 2, 2)
+			arguments(new PositiveNumber(1), "+", new PositiveNumber(2), 3),
+			arguments(new PositiveNumber(1), "-", new PositiveNumber(2), -1),
+			arguments(new PositiveNumber(1), "*", new PositiveNumber(2), 2),
+			arguments(new PositiveNumber(4), "/", new PositiveNumber(2), 2)
 		);
 	}
 	
+	/**
+	 * PositiveNumber(VO)를 만들었기때문에 필요가 없어진 test code
+	 */
 	@DisplayName("나눗셈에서 0으로 나누면 IllegalArgument 예외를 발생한다.")
 	@Test
 	void calculateExceptionTest() {
 		
 		Calculator calculator = new Calculator();
 		
-		assertThatCode(() -> calculator.calculate(1, "/" , 0))
+		assertThatCode(() -> calculator.calculate(new PositiveNumber(1), "/" , new PositiveNumber(0)))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
 }

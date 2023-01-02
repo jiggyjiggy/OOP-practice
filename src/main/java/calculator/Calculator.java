@@ -5,6 +5,7 @@ import calculator.operator.DivisionOperator;
 import calculator.operator.MultiplicationOperator;
 import calculator.operator.NewArithmeticOperator;
 import calculator.operator.SubtractionOperator;
+import calculator.vo.PositiveNumber;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class Calculator {
 		new DivisionOperator()
 	);
 	
-	public int calculate(int operand1, String operator, int operand2) {
+	public int calculate(PositiveNumber operand1, String operator, PositiveNumber operand2) {
 		return arithmeticOperators.stream()
 			.filter(arithmeticOperator -> arithmeticOperator.supports(operator))
 			.map(arithmeticOperator -> arithmeticOperator.calculate(operand1, operand2))

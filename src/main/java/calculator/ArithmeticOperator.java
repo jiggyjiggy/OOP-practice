@@ -1,5 +1,7 @@
 package calculator;
 
+import calculator.vo.PositiveNumber;
+
 import java.util.Arrays;
 
 public enum ArithmeticOperator {
